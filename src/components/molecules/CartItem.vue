@@ -9,7 +9,6 @@
 </template>
 
 <script setup>
-import { defineProps } from "vue";
 import { formatCurrency } from "@/utils/formatCurrency";
 
 defineProps({

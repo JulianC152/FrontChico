@@ -10,7 +10,6 @@
 </template>
 
 <script setup>
-import { defineProps } from 'vue';
 import { useCartStore } from '@/stores/cartStore';
 import Button from '@/components/atoms/Button.vue';
 import { formatCurrency } from '@/utils/formatCurrency';
