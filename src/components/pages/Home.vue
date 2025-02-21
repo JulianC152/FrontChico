@@ -1,8 +1,9 @@
 <template>
   <div class="home-page container">
     <div class="hero-section text-center mb-5 position-relative">
-      <Img :src="'https://cdn.pixabay.com/photo/2016/08/13/11/57/stadium-1590576_1280.jpg'" :alt="'Hero Image'"
-        :class="'img-fluid m-3 width: 100%'" />
+      <Img
+        :src="'https://imagenes.20minutos.es/files/image_1920_1080/uploads/imagenes/2023/10/04/estadio-santiago-bernabeu-1.jpeg'"
+        :alt="'Hero Image'" :class="'img-fluid m-3 width: 100%'" />
       <div class="hero-content position-absolute top-50 start-50 translate-middle text-white">
         <h1 class="hero-title">Bienvenido a Chico</h1>
         <h2 class="hero-subtitle">Encuentra los mejores productos aquí</h2>
@@ -89,6 +90,12 @@ onMounted(fetchProducts);
   padding-block: 2px;
   background-color: white;
   color: rgb(218, 61, 61);
+}
+
+
+.btn:hover {
+  background-color: rgb(218, 61, 61);
+  color: rgb(255, 255, 255);
 }
 
 .hero-search {

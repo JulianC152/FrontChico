@@ -1,9 +1,19 @@
 <script setup>
+import { onMounted, ref } from "vue";
 import Icon from "@/components/atoms/Icon.vue";
 import Button from "@/components/atoms/Button.vue";
+
+const isScrolled = ref(false);
+
+onMounted(() => {
+  window.addEventListener("scroll", () => {
+    isScrolled.value = window.scrollY > 50;
+  });
+});
 </script>
+
 <template>
-  <nav class="navbar navbar-expand-md fixed-top">
+  <nav :class="['navbar', 'navbar-expand-md', 'fixed-top', { 'navbar-scrolled': isScrolled }]">
     <div class="container-fluid ps-5">
       <a class="navbar-brand" href="#">FUT CHAMPS</a>
       <Button :class="'navbar-toggler'" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
@@ -58,5 +68,12 @@ import Button from "@/components/atoms/Button.vue";
 .bg-var {
   background-color: #343a40;
   /* Puedes personalizar el color del menú */
+}
+
+.navbar-scrolled {
+  background-color: #ebe8e8;
+  /* Cambia este color al que desees */
+  transition: background-color 0.3s;
+  opacity: 0.9;
 }
 </style>
