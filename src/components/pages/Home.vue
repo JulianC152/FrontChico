@@ -1,7 +1,19 @@
 <template>
   <div class="home-page container">
-    <h1 class="text-center my-4">Bienvenido a Chico</h1>
-
+    <div class="hero-section text-center mb-5 position-relative">
+      <Img :src="'https://cdn.pixabay.com/photo/2016/08/13/11/57/stadium-1590576_1280.jpg'" :alt="'Hero Image'"
+        :class="'img-fluid m-3 width: 100%'" />
+      <div class="hero-content position-absolute top-50 start-50 translate-middle text-white">
+        <h1 class="hero-title">Bienvenido a Chico</h1>
+        <h2 class="hero-subtitle">Encuentra los mejores productos aquí</h2>
+        <div class="hero-buttons my-3">
+          <Button :class="'btn mx-2'">Botón 1</Button>
+          <Button :class="'btn mx-2'">Botón 2</Button>
+          <Button :class="'btn mx-2'">Botón 3</Button>
+        </div>
+        <SearchBar class="hero-search mt-3" placeholder="Buscar productos..." />
+      </div>
+    </div>
     <div v-if="products.length > 0" class="row">
       <div v-for="product in products" :key="product.id" class="col-md-4 mb-4">
         <ProductCard :product="product" />
@@ -17,6 +29,8 @@
 <script setup>
 import { onMounted, ref } from "vue";
 import ProductCard from "@/components/molecules/ProductCard.vue";
+import Img from "@/components/atoms/Image.vue";
+import Button from "@/components/atoms/Button.vue";
 
 // Estado para almacenar los productos
 const products = ref([]);
@@ -40,7 +54,45 @@ onMounted(fetchProducts);
 
 <style scoped>
 .home-page {
-  max-width: 1200px;
+  width: 100%;
+  padding-block: 20px;
+}
+
+.hero-section {
+  position: relative;
+  width: 100%;
+}
+
+.hero-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+}
+
+.hero-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.hero-buttons .btn {
+  margin: 5px;
+  padding-inline: 10px;
+  padding-block: 2px;
+  background-color: white;
+  color: rgb(218, 61, 61);
+}
+
+.hero-search {
+  max-width: 600px;
   margin: auto;
 }
 </style>

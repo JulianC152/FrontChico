@@ -4,7 +4,7 @@
     <div class="card-body">
       <h5 class="card-title">{{ product.name }}</h5>
       <p class="card-text">{{ formatCurrency(product.price) }}</p>
-      <Button type="btn-success" @click="addToCart">Agregar al carrito</Button>
+      <Button :type="btn - success" @click="addToCart">Agregar al carrito</Button>
     </div>
   </div>
 </template>

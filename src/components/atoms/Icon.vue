@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { defineProps } from 'vue';
 
 // Props para personalización del icono
 defineProps<{
@@ -11,10 +10,7 @@ defineProps<{
 </script>
 
 <template>
-  <i
-    :class="class"
-    :style="{ fontSize: width || height, color: color }"
-  ></i>
+  <i :class="class" :style="{ fontSize: width || height, color: color }"></i>
 </template>
 
 <style scoped>

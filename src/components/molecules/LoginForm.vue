@@ -1,19 +1,22 @@
 <template>
   <form @submit.prevent="handleLogin" class="login-form">
     <div class="mb-3">
-      <label for="email" class="form-label">Correo electrónico</label>
-      <input v-model="email" type="email" class="form-control" id="email" required />
+      <Label :for="email">Correo electrónico</Label>
+      <Input v-model="email" :type="email" class="form-control" id="email" required />
     </div>
     <div class="mb-3">
-      <label for="password" class="form-label">Contraseña</label>
-      <input v-model="password" type="password" class="form-control" id="password" required />
+      <Label :for="password">Contraseña</Label>
+      <Input v-model="password" :type="password" class="form-control" id="password" required />
     </div>
-    <button type="submit" class="btn btn-primary w-100">Ingresar</button>
+    <Button type="submit" class="btn btn-primary w-100">Ingresar</Button>
   </form>
 </template>
 
 <script setup>
 import { ref } from "vue";
+import Input from "@/components/atoms/Input.vue";
+import Label from "@/components/atoms/Label.vue";
+import Button from "@/components/atoms/Button.vue";
 
 const email = ref("");
 const password = ref("");
