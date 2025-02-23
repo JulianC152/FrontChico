@@ -32,16 +32,19 @@ onMounted(() => {
 
           <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Tienda</a>
+              <a class="nav-link" aria-current="page" href="#">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="#" tabindex="" aria-disabled="true">Contacto</a>
+              <a class="nav-link" href="#" tabindex="" aria-disabled="true">Tienda</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" tabindex="" aria-disabled="true">Contacto</a>
             </li>
           </ul>
 
-          <ul class="navbar-nav justify-content-end mb-2 mb-lg-0 ul-md ">
+          <ul class="navbar-nav justify-content-end mb-2 mb-lg-0 ul-md">
             <li class="nav-item pe-2">
-              <a class="nav-link active" aria-current="page" href="#">Es</a>
+              <a class="nav-link" aria-current="page" href="#">Es</a>
             </li>
             <li class="nav-item d-flex align-items-center pe-5">
               <Icon :width="'25px'" :class="'fa-solid fa-user'"></Icon>
@@ -58,7 +61,7 @@ onMounted(() => {
   font-weight: bold;
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1980px) {
   .ul-md {
     flex-grow: 1;
     padding-right: 3rem;
@@ -67,12 +70,14 @@ onMounted(() => {
 
 .bg-var {
   background-color: #343a40;
-  /* Puedes personalizar el color del menú */
+}
+
+.nav-link:hover {
+  color: rgb(209, 58, 58) !important; 
 }
 
 .navbar-scrolled {
   background-color: #ebe8e8;
-  /* Cambia este color al que desees */
   transition: background-color 0.3s;
   opacity: 0.9;
 }
