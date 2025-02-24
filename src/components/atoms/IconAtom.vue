@@ -2,7 +2,7 @@
 
 // Props para personalización del icono
 defineProps<{
-  class: string; // Nombre del icono (por ejemplo, 'home' o 'cart')
+  iconClass: string; // Nombre del icono (por ejemplo, 'home' o 'cart')
   width?: string; // Ancho (ej: '24px')
   height?: string; // Alto (ej: '24px')
   color?: string; // Color del icono (ej: 'red', '#123456')
@@ -10,7 +10,7 @@ defineProps<{
 </script>
 
 <template>
-  <i :class="class" :style="{ fontSize: width || height, color: color }"></i>
+  <i :class="iconClass" :style="{ fontSize: width || height, color: color }"></i>
 </template>
 
 <style scoped>

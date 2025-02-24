@@ -27,29 +27,36 @@
   </div>
 </template>
 
-<script setup>
-import { onMounted, ref } from "vue";
-import { useRoute } from "vue-router";
+<script setup lang="ts">
+import { ref } from "vue";
 import { useCartStore } from "@/stores/cartStore";
 import { formatCurrency } from "@/utils/formatCurrency";
 
-const route = useRoute();
+// const route = useRoute();
 const cartStore = useCartStore();
-const product = ref(null);
+interface Product {
+  id: number;
+  name: string;
+  description: string;
+  price: number;
+  image: string;
+}
 
-const fetchProduct = async () => {
-  try {
-    // Simulación de API (reemplazar con fetch real)
-    const mockProducts = [
-      { id: 1, name: "Producto 1", description: "Descripción del producto 1", price: 199.99, image: "https://via.placeholder.com/300" },
-      { id: 2, name: "Producto 2", description: "Descripción del producto 2", price: 249.99, image: "https://via.placeholder.com/300" },
-    ];
-    
-    product.value = mockProducts.find(p => p.id === parseInt(route.params.id));
-  } catch (error) {
-    console.error("Error al cargar el producto:", error);
-  }
-};
+const product = ref<Product | null>(null);
+
+// const fetchProduct = async () => {
+//   try {
+//     // Simulación de API (reemplazar con fetch real)
+//     const mockProducts = [
+//       { id: 1, name: "Producto 1", description: "Descripción del producto 1", price: 199.99, image: "https://via.placeholder.com/300" },
+//       { id: 2, name: "Producto 2", description: "Descripción del producto 2", price: 249.99, image: "https://via.placeholder.com/300" },
+//     ];
+
+//     // product.value = mockProducts.find(p => p.id === parseInt(route.params.id));
+//   } catch (error) {
+//     console.error("Error al cargar el producto:", error);
+//   }
+// };
 
 const addToCart = () => {
   if (product.value) {
@@ -57,7 +64,7 @@ const addToCart = () => {
   }
 };
 
-onMounted(fetchProduct);
+// onMounted(fetchProduct);
 </script>
 
 <style scoped>

@@ -1,15 +1,18 @@
 <template>
-  <button :class="class" :type="type" :disabled="disabled" @click="onClick">
+  <button :class="[clase, computedClasses]" :type="type" :disabled="disabled" @click="onClick">
     <slot></slot>
   </button>
 </template>
 
-<script setup>
-import { computed } from 'vue';
+<script setup lang="ts">
+import { computed, defineEmits } from 'vue';
 
-defineProps({
+
+const emit = defineEmits(['click']);
+
+const props = defineProps({
   type: {
-    type: String,
+    type: String as () => 'button' | 'submit' | 'reset',
     default: 'button',
   },
   variant: {
@@ -20,22 +23,20 @@ defineProps({
     type: Boolean,
     default: false,
   },
-  class: {
+  clase: {
     type: String
   },
 });
 
-defineEmits(['click']);
-
 const computedClasses = computed(() => ({
   'btn': true,
-  'btn-primary': variant === 'primary',
-  'btn-secondary': variant === 'secondary',
-  'btn-disabled': disabled,
+  'btn-primary': props.variant === 'primary',
+  'btn-secondary': props.variant === 'secondary',
+  'btn-disabled': props.disabled,
 }));
 
-const onClick = (event) => {
-  if (!disabled) {
+const onClick = (event: MouseEvent) => {
+  if (!props.disabled) {
     emit('click', event);
   }
 };

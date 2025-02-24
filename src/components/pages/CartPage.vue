@@ -1,3 +1,17 @@
+<script setup lang="ts">
+import { computed } from "vue";
+import { useCartStore } from "@/stores/cartStore";
+import CartItem from "@/components/molecules/CartItem.vue";
+import { formatCurrency } from "@/utils/formatCurrency";
+
+const cartStore = useCartStore();
+const cart = computed(() => cartStore.items);
+const totalPrice = computed(() => cartStore.items.reduce((sum, item) => sum + item.price * item.quantity, 0));
+
+const removeFromCart = (productId: number) => {
+  cartStore.removeFromCart(productId);
+};
+</script>
 <template>
   <div class="cart-page container">
     <h2 class="my-4">Carrito de Compras</h2>
@@ -18,20 +32,6 @@
   </div>
 </template>
 
-<script setup>
-import { computed } from "vue";
-import { useCartStore } from "@/stores/cartStore";
-import CartItem from "@/components/molecules/CartItem.vue";
-import { formatCurrency } from "@/utils/formatCurrency";
-
-const cartStore = useCartStore();
-const cart = computed(() => cartStore.items);
-const totalPrice = computed(() => cartStore.items.reduce((sum, item) => sum + item.price * item.quantity, 0));
-
-const removeFromCart = (productId) => {
-  cartStore.removeFromCart(productId);
-};
-</script>
 
 <style scoped>
 .cart-page {

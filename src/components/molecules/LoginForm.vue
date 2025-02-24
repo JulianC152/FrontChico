@@ -12,11 +12,11 @@
   </form>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref } from "vue";
-import Input from "@/components/atoms/Input.vue";
-import Label from "@/components/atoms/Label.vue";
-import Button from "@/components/atoms/Button.vue";
+import Input from "@/components/atoms/InputAtom.vue";
+import Label from "@/components/atoms/LabelAtom.vue";
+import Button from "@/components/atoms/ButtonAtom.vue";
 
 const email = ref("");
 const password = ref("");

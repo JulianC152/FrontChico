@@ -2,7 +2,7 @@
   <img :src="src" :alt="alt" class="img-fluid" />
 </template>
 
-<script setup>
+<script setup lang="ts">
 
 defineProps({
   src: { type: String, required: true },

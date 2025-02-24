@@ -4,19 +4,19 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { computed } from 'vue';
 
-defineProps({
+const props = defineProps({
   type: {
     type: String,
     default: 'border', // 'border' o 'grow'
-    validator: (value) => ['border', 'grow'].includes(value),
+    validator: (value: string) => ['border', 'grow'].includes(value),
   },
   size: {
     type: String,
     default: 'md', // 'sm' o 'md' o 'lg'
-    validator: (value) => ['sm', 'md', 'lg'].includes(value),
+    validator: (value: string) => ['sm', 'md', 'lg'].includes(value),
   },
   color: {
     type: String,
@@ -24,6 +24,8 @@ defineProps({
   },
   label: String, // Texto accesible para lectores de pantalla
 });
+
+const { type, size, color } = props;
 
 const spinnerClass = computed(() => [
   `spinner-${type}`,

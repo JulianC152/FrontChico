@@ -1,7 +1,7 @@
-<script setup>
+<script setup lang="ts">
 import { onMounted, ref } from "vue";
-import Icon from "@/components/atoms/Icon.vue";
-import Button from "@/components/atoms/Button.vue";
+import Icon from "@/components/atoms/IconAtom.vue";
+import Button from "@/components/atoms/ButtonAtom.vue";
 
 const isScrolled = ref(false);
 
@@ -47,7 +47,7 @@ onMounted(() => {
               <a class="nav-link" aria-current="page" href="#">Es</a>
             </li>
             <li class="nav-item d-flex align-items-center pe-5">
-              <Icon :width="'25px'" :class="'fa-solid fa-user'"></Icon>
+              <Icon :width="'25px'" :iconClass="'fa-solid fa-user'"></Icon>
             </li>
           </ul>
         </div>
@@ -73,7 +73,7 @@ onMounted(() => {
 }
 
 .nav-link:hover {
-  color: rgb(209, 58, 58) !important; 
+  color: rgb(209, 58, 58) !important;
 }
 
 .navbar-scrolled {

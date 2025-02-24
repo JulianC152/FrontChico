@@ -1,7 +1,7 @@
 <template>
   <div class="checkout-page container">
     <h2 class="my-4">Finalizar compra</h2>
-    
+
     <CheckoutForm />
 
     <div class="mt-4">
@@ -10,7 +10,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import CheckoutForm from "@/components/organisms/CheckoutForm.vue";
 </script>
 

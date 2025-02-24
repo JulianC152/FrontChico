@@ -2,15 +2,15 @@
   <div class="mb-3">
     <label v-if="label" :for="id" class="form-label">{{ label }}</label>
     <input :id="id" :type="type" :placeholder="placeholder" :value="modelValue" :disabled="disabled"
-      :class="computedClasses" @input="$emit('update:modelValue', $event.target.value)" />
+      :class="computedClasses" @input="$emit('update:modelValue', ($event.target as HTMLInputElement).value)" />
     <div v-if="errorMessage" class="text-danger mt-1">{{ errorMessage }}</div>
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { computed } from 'vue';
 
-defineProps({
+const props = defineProps({
   modelValue: String, // Para v-model
   type: {
     type: String,
@@ -28,6 +28,6 @@ defineProps({
 
 const computedClasses = computed(() => ({
   'form-control': true,
-  'is-invalid': !!errorMessage, // Clase de Bootstrap para errores
+  'is-invalid': !!props.errorMessage, // Clase de Bootstrap para errores
 }));
 </script>

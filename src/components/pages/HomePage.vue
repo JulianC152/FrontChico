@@ -1,9 +1,19 @@
+<script setup lang="ts">
+// import { ref } from "vue";
+// import ProductCard from "@/components/molecules/ProductCard.vue";
+import Img from "@/components/atoms/BaseImage.vue";
+import Button from "@/components/atoms/ButtonAtom.vue";
+
+// Estado para almacenar los productos
+// const products = ref([]);
+
+</script>
 <template>
   <div class="home-page container">
     <div class="hero-section text-center mb-5 position-relative">
       <Img
         :src="'https://imagenes.20minutos.es/files/image_1920_1080/uploads/imagenes/2023/10/04/estadio-santiago-bernabeu-1.jpeg'"
-        :alt="'Hero Image'" :class="'img-fluid m-3 width: 100%'" />
+        :alt="'Hero Image'" :class="'img-fluid w-100 mt-3'" />
       <div class="hero-content position-absolute top-50 start-50 translate-middle text-white">
         <h1 class="hero-title">Bienvenido a Chico</h1>
         <h2 class="hero-subtitle">Encuentra los mejores productos aquí</h2>
@@ -15,43 +25,18 @@
         <SearchBar class="hero-search mt-3" placeholder="Buscar productos..." />
       </div>
     </div>
-    <div v-if="products.length > 0" class="row">
+    <!-- <div v-if="products.length > 0" class="row">
       <div v-for="product in products" :key="product.id" class="col-md-4 mb-4">
         <ProductCard :product="product" />
       </div>
-    </div>
+    </div> -->
 
-    <div v-else class="text-center">
+    <!-- <div v-else class="text-center">
       <p>Cargando productos...</p>
-    </div>
+    </div> -->
   </div>
 </template>
 
-<script setup>
-import { onMounted, ref } from "vue";
-import ProductCard from "@/components/molecules/ProductCard.vue";
-import Img from "@/components/atoms/Image.vue";
-import Button from "@/components/atoms/Button.vue";
-
-// Estado para almacenar los productos
-const products = ref([]);
-
-// Simulación de carga de productos (deberías reemplazar esto con una API real)
-const fetchProducts = async () => {
-  try {
-    products.value = [
-      { id: 1, name: "Producto 1", price: 199.99, image: "https://via.placeholder.com/300" },
-      { id: 2, name: "Producto 2", price: 249.99, image: "https://via.placeholder.com/300" },
-      { id: 3, name: "Producto 3", price: 99.99, image: "https://via.placeholder.com/300" }
-    ];
-  } catch (error) {
-    console.error("Error al cargar productos:", error);
-  }
-};
-
-// Cargar productos al montar el componente
-onMounted(fetchProducts);
-</script>
 
 <style scoped>
 .home-page {
@@ -92,6 +77,10 @@ onMounted(fetchProducts);
   color: rgb(218, 61, 61);
 }
 
+.img-fluid {
+  width: 100%;
+  height: auto;
+}
 
 .btn:hover {
   background-color: rgb(218, 61, 61);
