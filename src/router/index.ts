@@ -3,7 +3,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 import Home from '@/components/pages/HomePage.vue';
 import ProductDetail from '@/components/pages/ProductDetail.vue';
 import Cart from '@/components/pages/CartPage.vue';
-import Checkout from '@/components/pages/Checkout.vue';
+import Checkout from '@/components/pages/CheckoutPage.vue';
 import Login from '@/components/pages/LoginPage.vue';
   
 const routes = [

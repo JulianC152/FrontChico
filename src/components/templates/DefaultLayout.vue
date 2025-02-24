@@ -2,7 +2,7 @@
   <div class="default-layout">
     <Navbar />
 
-    <main class="container my-4">
+    <main class=" my-4">
       <slot />
     </main>
 
@@ -11,8 +11,8 @@
 </template>
 
 <script setup lang="ts">
-import Navbar from "@/components/organisms/Navbar.vue";
-import Footer from "@/components/organisms/Footer.vue";
+import Navbar from "@/components/organisms/NavbarOrganism.vue";
+import Footer from "@/components/organisms/FooterOrganism.vue";
 </script>
 
 <style scoped>
@@ -22,7 +22,15 @@ import Footer from "@/components/organisms/Footer.vue";
   min-height: 100vh;
 }
 
-main {
+.main-content {
   flex: 1;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.default-layout {
+  margin: 0;
+  padding: 0;
 }
 </style>

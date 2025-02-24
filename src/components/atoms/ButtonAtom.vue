@@ -42,26 +42,4 @@ const onClick = (event: MouseEvent) => {
 };
 </script>
 
-<style scoped>
-.btn {
-  padding: 10px 20px;
-  border-radius: 5px;
-  border: none;
-  cursor: pointer;
-}
-
-.btn-primary {
-  background-color: blue;
-  color: white;
-}
-
-.btn-secondary {
-  background-color: gray;
-  color: white;
-}
-
-.btn-disabled {
-  background-color: lightgray;
-  cursor: not-allowed;
-}
-</style>
+<style scoped></style>
