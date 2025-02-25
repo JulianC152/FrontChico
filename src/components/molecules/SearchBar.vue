@@ -1,10 +1,9 @@
-<template>
-  <div class="">
+1<template>
+  <div :class="' search-bar '">
     <span :class="searchIcon">
       🔍
     </span>
     <input type="text" :class="clase" :placeholder="props.placeholder" v-model="searchQuery" @input="emitSearch" />
-
   </div>
 </template>
 
@@ -18,11 +17,11 @@ const props = defineProps({
   },
   clase: {
     type: String,
-    default: "p-2 border border-gray-300 rounded-md w-full",
+    default: "border-0  outline-none w-full "
   },
   searchIcon: {
     type: String,
-    default: "margin-left: 10px  font- size: 18px  color: gray",
+    default: "",
   },
 
 });

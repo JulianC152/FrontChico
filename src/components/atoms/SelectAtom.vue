@@ -1,8 +1,10 @@
 <template>
-  <div class="mb-3">
+  <div class="select-wrapper">
+    <!-- Etiqueta opcional -->
     <label v-if="label" :for="id" class="form-label">{{ label }}</label>
-    <select :id="id" class="form-select" :disabled="disabled"
-      @change="$emit('update:modelValue', ($event.target as HTMLSelectElement).value)">
+    <!-- Select -->
+    <select :id="'id'" :class="'location-select'" v-model="selectedOption" :disabled="disabled" @change="emitChange">
+      <option value="" disabled>Select location</option>
       <option v-for="option in options" :key="option.value" :value="option.value">
         {{ option.label }}
       </option>
@@ -11,15 +13,25 @@
 </template>
 
 <script setup lang="ts">
-interface Option {
-  value: string | number;
-  label: string;
-}
+import { ref, defineProps, defineEmits } from "vue";
 
-defineProps<{
+// Define las propiedades esperadas
+const props = defineProps<{
   id: string;
   label?: string;
-  options: Option[];
+  options: { value: string; label: string }[]; // Tipado estricto para opciones
+  modelValue: string;
   disabled?: boolean;
 }>();
+
+const emit = defineEmits(["update:modelValue"]);
+
+const selectedOption = ref(props.modelValue);
+
+// Emite cambios cuando el usuario selecciona una opción
+const emitChange = () => {
+  emit("update:modelValue", selectedOption.value);
+};
 </script>
+
+<style scoped></style>

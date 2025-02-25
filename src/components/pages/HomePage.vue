@@ -1,9 +1,12 @@
 <script setup lang="ts">
-// import { ref } from "vue";
+import { ref } from "vue";
 // import ProductCard from "@/components/molecules/ProductCard.vue";
 import Img from "@/components/atoms/BaseImage.vue";
 import Button from "@/components/atoms/ButtonAtom.vue";
 import SearchBar from "@/components/molecules/SearchBar.vue";
+import Select from "@/components/atoms/SelectAtom.vue";
+import IconAtom from "../atoms/IconAtom.vue";
+const selectedLocation = ref("");
 
 </script>
 <template>
@@ -20,8 +23,15 @@ import SearchBar from "@/components/molecules/SearchBar.vue";
           <Button :class="'btn mx-2'">Equipo</Button>
           <Button :class="'btn mx-2'">Mvp</Button>
         </div>
-        <div class="search-bar mt-3">
-          <SearchBar :class="'search-input mt-3'" :placeholder="'Encuetra tu cancha'" />
+        <div :class="'search-bar'">
+          <SearchBar :class="'search-input'" :placeholder="'Encuetra tu cancha'" />
+          <Select :id="'select'" :class="'location-select'" name="location"
+            :options="[{ value: 'cdmx', label: 'CDMX' }, { value: 'guadalajara', label: 'Guadalajara' }, { value: 'monterrey', label: 'Monterrey' }]"
+            v-model="selectedLocation">
+          </Select>
+          <Button class="search-button">
+            <IconAtom :iconClass="'fa fa-search iClass'" :height="'20px'" :width="'15px'"></IconAtom>
+          </Button>
         </div>
       </div>
     </div>
@@ -84,50 +94,52 @@ import SearchBar from "@/components/molecules/SearchBar.vue";
 
 .search-bar {
   width: 100%;
-  max-width: 600px;
-  margin: auto;
   background-color: white;
   border-radius: 30px;
   display: flex;
   align-items: center;
-  padding: 10px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 5px 0px;
+  width: 40rem;
 }
 
 .search-input {
   flex: 1;
   border: none;
   outline: none;
-  font-size: 16px;
-  padding: 8px;
+  padding: 5px;
+  font-size: 15px;
   border-radius: 20px;
-  width: 100%;
+  width: 20rem;
 }
 
 .location-select {
+  font-size: 15px;
+  margin: 0 10px;
+  width: 150px;
+  cursor: pointer;
   border: none;
   outline: none;
-  background: transparent;
-  font-size: 16px;
-  color: gray;
-  margin: 0 10px;
-  cursor: pointer;
+}
+
+.location-select:disabled {
+  background-color: #f0f0f0;
+  cursor: not-allowed;
 }
 
 .search-button {
-  background-color: #d72638;
   border: none;
-  color: white;
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  margin: 0 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
+  background-color: #f0f0f0;
+  color: black;
 }
 
 .search-button:hover {
-  background-color: #b71c2a;
+  color: rgb(255, 255, 255);
+  background-color: #d64350;
 }
 </style>
