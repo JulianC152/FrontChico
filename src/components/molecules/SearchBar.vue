@@ -1,9 +1,6 @@
 1<template>
   <div :class="' search-bar '">
-    <span :class="searchIcon">
-      🔍
-    </span>
-    <input type="text" :class="clase" :placeholder="props.placeholder" v-model="searchQuery" @input="emitSearch" />
+    <input type="text" :class="'clase'" :placeholder="props.placeholder" v-model="searchQuery" @input="emitSearch" />
   </div>
 </template>
 
@@ -17,7 +14,7 @@ const props = defineProps({
   },
   clase: {
     type: String,
-    default: "border-0  outline-none w-full "
+    default: "border-0  outline-none",
   },
   searchIcon: {
     type: String,
@@ -37,4 +34,18 @@ const emitSearch = () => {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.clase {
+  width: 80%;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding: 0px 30px 0px 12px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  font-size: 15px;
+  color: #898989;
+  cursor: pointer;
+}
+</style>

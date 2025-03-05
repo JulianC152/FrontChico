@@ -1,20 +1,18 @@
-<script setup lang="ts">
+<template>
+  <font-awesome-icon :icon="iconClass" :style="{ fontSize: width || height, color: color }" />
+</template>
 
-// Props para personalización del icono
+<script setup lang="ts">
 defineProps<{
-  iconClass: string; // Nombre del icono (por ejemplo, 'home' o 'cart')
+  iconClass: string; // Nombre del icono (por ejemplo, 'fa-solid fa-magnifying-glass')
   width?: string; // Ancho (ej: '24px')
   height?: string; // Alto (ej: '24px')
   color?: string; // Color del icono (ej: 'red', '#123456')
 }>();
 </script>
 
-<template>
-  <i :class="iconClass" :style="{ fontSize: width || height, color: color }"></i>
-</template>
-
 <style scoped>
-i {
+.iconClass {
   display: inline-flex;
   align-items: center;
   justify-content: center;

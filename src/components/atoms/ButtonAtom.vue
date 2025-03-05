@@ -15,10 +15,6 @@ const props = defineProps({
     type: String as () => 'button' | 'submit' | 'reset',
     default: 'button',
   },
-  variant: {
-    type: String,
-    default: 'primary', // Puede ser 'primary', 'secondary', etc.
-  },
   disabled: {
     type: Boolean,
     default: false,
@@ -30,8 +26,6 @@ const props = defineProps({
 
 const computedClasses = computed(() => ({
   'btn': true,
-  'btn-primary': props.variant === 'primary',
-  'btn-secondary': props.variant === 'secondary',
   'btn-disabled': props.disabled,
 }));
 

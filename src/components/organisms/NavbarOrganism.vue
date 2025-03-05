@@ -3,6 +3,7 @@ import { onMounted, ref } from "vue";
 import Icon from "@/components/atoms/IconAtom.vue";
 import Button from "@/components/atoms/ButtonAtom.vue";
 
+
 const isScrolled = ref(false);
 
 onMounted(() => {
@@ -28,8 +29,7 @@ onMounted(() => {
           <Button class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></Button>
         </div>
 
-        <div class="offcanvas-body d-flex justify-content-center align-items-center">
-
+        <div class="offcanvas-body d-flex justify-content-center align-items-center ">
           <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
             <li class="nav-item">
               <a class="nav-link" aria-current="page" href="#">Home</a>
@@ -42,7 +42,7 @@ onMounted(() => {
             </li>
           </ul>
 
-          <ul class="navbar-nav justify-content-end mb-2 mb-lg-0 ul-md">
+          <ul class="navbar-nav justify-content-end mb-2 mb-lg-0 ul-md ">
             <li class="nav-item pe-2">
               <a class="nav-link" aria-current="page" href="#">Es</a>
             </li>
@@ -70,10 +70,19 @@ onMounted(() => {
 
 .bg-var {
   background-color: #343a40;
+  color: black;
+}
+
+.nav-link {
+  color: black;
+}
+
+.navbar-nav {
+  margin-left: 5rem;
 }
 
 .nav-link:hover {
-  color: rgb(209, 58, 58) !important;
+  color: #DB2841;
 }
 
 .navbar-scrolled {
